@@ -7,9 +7,9 @@ blockquote, q {quotes: none}
 blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none}
 table{border-collapse: collapse;border-spacing: 0}
 a{text-decoration: none; outline: 0}
-
 input, textarea, select{border: none; background: none; font-size: 100%; resize: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; outline: none; border-radius: 0}
 input::-moz-placeholder{opacity: 1}
 textarea::-moz-placeholder{opacity: 1}
 input::-moz-focus-inner{border:0; padding:0}
-input{-webkit-appearance: none;}
+input{-webkit-appearance: none}
+.clear:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0}* html .clear{zoom:1}*:first-child+html .clear{zoom:1}

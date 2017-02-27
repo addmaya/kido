@@ -5,8 +5,17 @@ Author URI: http://addmaya.com/
 */
 
 @import 'reset';
+@import 'animate';
 
 /*variables*/
+$blue:#238cad;
+$green:#45d09d;
+$purple:#8151aa;
+$grey:#bdc3c7;
+$white:#ecf0f1;
+$black:#707879;
+@mixin lato{font-family: 'Lato', sans-serif}
+@mixin opensans{font-family: 'Open Sans', sans-serif}
 
 /*functions*/
 @mixin image($image){background-image: url('images/'+$image)}
@@ -30,9 +39,29 @@ Author URI: http://addmaya.com/
 }
 
 /*utilities*/
-.u-clear:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0}* html .clear{zoom:1}*:first-child+html .clear{zoom:1}
+.u-box{width:73em; margin:0 auto}
+.u-table{display: table}
+.u-cell{display: table-cell}
 
 /*objects*/
 html,body{width:100%; height:100%}
+a{color:inherit;}
+body{background-color:$white; color:$black; @include opensans}
+h1{font-size: 2.5em; font-weight: 300; line-height: 1.4}
+.o-button{color: white; padding: 1em 3em; border-radius: 2em; display: inline-block; background-color: $blue;}
 
 /*components*/
+.c-header{position: fixed; top:0; z-index: 2; left:0; width: 100%; color: white; padding:1em 0}
+.c-logo{width: 5em; height: 1.5em; @include image('logo.svg'); background-size: contain;  background-repeat: no-repeat; display: block; float: left;}
+.c-menu{float: right;
+  li{display: inline-block; margin-right: 0.75em}
+  a{text-transform: uppercase; padding: 0.75em; font-size: 0.75em; @include lato; display: block; position: relative; font-weight: 700}
+}
+.c-slider__wrap{width: 100%; height: 80%;}
+.c-slider{height: 100%; width: 100%; text-align: center; color:white;
+  .swiper-slide{background-size: cover; background-repeat: no-repeat; background-position: center}
+  .u-table{width: 100%; height: 100%;}
+  .u-cell{vertical-align: middle}
+  section{width: 70%; margin: 0 auto}
+  h1{margin-bottom: 2.5em}
+}
