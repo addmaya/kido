@@ -19,7 +19,7 @@
 					<div class="u-cell">
 						<div class="u-box">
 							<section>
-								<h1>Xeno is an automated service that advises and executes your Investment Strategy</h1>
+								<h1>Investing through Xeno is fast, convenient, and accessible to anyone.</h1>
 								<a href="<?php echo home_url(); ?>/wizard" class="o-button">Get Started</a>
 							</section>
 						</div>
@@ -31,7 +31,7 @@
 					<div class="u-cell">
 						<div class="u-box">
 							<section>
-								<h1>Xeno is an automated service that advises and executes your Investment Strategy</h1>
+								<h1>Xeno offers you professional investment advice inexpensively.</h1>
 								<a href="<?php echo home_url(); ?>/wizard" class="o-button">Get Started</a>
 							</section>
 						</div>
@@ -41,7 +41,7 @@
 		</div>
 	</div>
 </section>
-<section class="o-section s--process">
+<section class="o-section s--process" id="process">
 	<div class="u-box">
 		<header class="o-section__header">
 			<h2>Automated Advise to Execution</h2>
@@ -84,7 +84,7 @@
 		</div>
 	</div>
 </section>
-<section class="o-section s--features">
+<section class="o-section s--features" id="features">
 	<div class="u-box">
 		<div class="clear">
 			<div class="u-half">
@@ -126,7 +126,7 @@
 	</div>
 	<figure class="c-features__image u-half"></figure>
 </section>
-<section class="o-section s--team">
+<section class="o-section s--team" id="team">
 	<div class="u-box">
 		<header class="o-section__header">
 			<h2>A team you can trust</h2>
@@ -264,43 +264,19 @@
 				</div>
 				<div class="u-half">
 					<header class="o-section__header s--left">
-						<h2>Frequently Asked Questions</h2>
+						<h2>Common Questions</h2>
 					</header>
+					<section class="o-faq">
+						<h3>What is the minimum amount you can start with?</h3>
+						<p>Investors can start with as low as USh 300,000. However, we realize everyone’s circumstances are different. You could decide to define a goal (e.g. retirement) and invest a lump sum amount at the beginning. Alternatively, one can start with a modest minimum amount and periodically add to their investment account (e.g. monthly contributions) over the investment horizon.</p>	
+					</section>
+					<section class="o-faq">
+						<h3>Can I speak to an investment advisor?</h3>
+						<p>Yes! If at any time in the process you are unsure how to proceed or do not fully understand all the information provided or you simply just want to talk, we encourage you to reach out to us using the details provided under our Contact page.</p>
+					</section>
 					<section>
-						<div id="acdn-faq" class="acdn">
-							<h4>What is the minimum amount you can start with?</h4>
-							<div>
-								<p>Investors can start with as low as USh 100,000. We encourage every investor to have a disciplined periodic savings strategy in which they add to their investments for example every week or month.</p>	
-							</div>
-							<h4>How is it different from traditional financial/investment advice?</h4>
-							<div>
-								<p>Xeno automates the entire traditional investment advisory process and made it possible in about 10 minutes. Because it is accessible through the web, we are able to instantly compute your risk tolerance, recommend an asset allocation, and you can create and fund your account conveniently. We plan to make it accessible through a mobile app and eventually text. We ask you critical questions online and feed your responses to our algorithms to process them and make a dispassionate recommendation based on the information collected.</p>
-							</div>
-							<h4>What does it cost?</h4>
-							<div>
-								<p>We will charge an annual management fee of 2% of assets under management. To illustrate, if you start with USh 100,000 at the beginning of the year and this investment earns 20% return that year so that your ending balance is USh 120,000. We will compute the average balance in the account that year (i.e. 110,000 = (100,000+120,000)/2). The total management fee will be USh 2,200 for that year, which is 2% of USh 110,000, the average balance in your account over the year. This comes to roughly USh 183 per month.</p>	
-							</div>
-							<h4>Can I speak to an investment advisor?</h4>
-							<div>
-								<p>Yes! If at any time in the process you are unsure how to proceed or do not fully understand all the information provided or you simply just want to talk, we encourage you to reach us at the contacts provided under our Contact page.</p>
-							</div>
-							<h4>Can I open more than one account?</h4>
-							<div>
-								<p>Yes, as long as each of them has a minimum of USh 100,000. Many of our clients prefer to open separate accounts for each goal.</p>
-							</div>
-							<h4>What information will I need to provide in order to open up an account?</h4>
-							<div>
-								<p>We are obligated by the regulators to collect some minimum identification information about each of our clients. At the moment you will be asked for:</p>
-								<ul>
-									<li>Biographical details (e.g. Names, Date of birth, etc.)</li>
-									<li>Official document (e.g. National ID, Passport, and Driving Permit – names must match what is provided above)</li>
-									<li>Mailing address (e.g. P.O.BOX)</li>
-									<li>Physical address (e.g. Plot Number, Road/Street, County, District)</li>
-									<li>Phone number</li>
-									<li>Bank details</li>
-								</ul>
-							</div>
-						</div>
+						<a href="" class="o-button t-dark">More Questions</a>
+						<a href="#footer" class="o-button t-dark">Contact Xeno</a>
 					</section>
 				</div>
 			</div>

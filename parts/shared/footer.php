@@ -1,4 +1,4 @@
-<footer class="c-footer o-section">
+<footer class="c-footer o-section" id="footer">
 	<div class="u-box">
 		<div class="clear">
 			<div class="u-half">

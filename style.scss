@@ -63,6 +63,9 @@ p{line-height: 1.8}
   &:hover{background-color: darken($blue, 10%);
     &:after{@include prefix((transform: scale(1,1)));}
   }
+  &.t-dark{background-color: transparent; border: solid 2px white;
+    &:hover{background-color: $blue; border-color: transparent;}
+  }
 }
 .o-icon{display: block; width: 1.5em; height: 1.5em; background-repeat: no-repeat; background-position: center; background-size: contain;
   &.s--goals{@include image('icons/avatar.svg')}
@@ -87,6 +90,8 @@ p{line-height: 1.8}
     h2{color: inherit;
       &:after{background-color:#fff}
     }
+    h3{color: inherit;}
+    .o-button{margin-right: 1em}
   }
   &.s--features{position: relative; background-color: $white}
 }
@@ -109,17 +114,33 @@ p{line-height: 1.8}
   }
   span{height: 2px; bottom: 0em; left: 0; @include prefix((transform: scale(0, 1))); @include prefix((transform-origin: 0% 0%)); @include prefix((transition: transform 0.2s ease)); background-color: $blue; width: 100%; position: absolute; z-index: 2;}
 }
+.o-faq{padding-bottom: 2.5em;
+  h3{margin-bottom: 0.75em}
+  p{font-family: 'Georgia'; font-style: italic;}
+}
 
 /*components*/
-.c-header{position: fixed; top:0; z-index: 2; left:0; width: 100%; color: white; padding:1.2em 0;}
-.c-logo{width: 5em; height: 1.5em; @include image('logo.svg'); background-size: contain;  background-repeat: no-repeat; display: block; float: left;}
+.c-header{position: fixed; top:0; z-index: 2; left:0; width: 100%; color: $white; padding:1.2em 0; @include prefix((transition: color 0.3s ease));
+  .u-box{position: relative;
+    &:after{content:""; position: absolute; top:-1.2em; left:0; z-index: -1; background-color: $white; @include prefix((transform-origin: 0% 0%)); @include prefix((transition: transform 0.5s ease)); height: 200%; width: 100%; @include prefix((transform:scale(1,0)))}
+  }
+  &.is-sticky{color: $black;
+    .u-box:after{@include prefix((transform:scale(1,1)))}
+  }
+}
+.c-logo{width: 5em; height: 1.5em; @include image('logo.svg'); background-size: contain;  background-repeat: no-repeat; display: block; float: left; margin-left: 0.75em;
+  .is-sticky &{@include image('logo-dark.svg');}
+}
 .c-menu{float: right;
   li{display: inline-block; margin-right: 0.75em}
   a{text-transform: uppercase; padding: 0.75em; font-size: 0.75em; @include lato; display: block; position: relative; font-weight: 700}
 }
 .c-slider__wrap{width: 100%; height: 80%;}
 .c-slider{height: 100%; width: 100%; text-align: center; color:white;
-  .swiper-slide{background-size: cover; background-repeat: no-repeat; background-position: center}
+  .swiper-slide{background-size: cover; background-repeat: no-repeat; background-position: center bottom;}
+  .swiper-slide-active{
+    section{@include anim; @include fadeInUp}
+  }
   .u-table{width: 100%; height: 100%;}
   .u-cell{vertical-align: middle}
   section{width: 70%; margin: 0 auto}

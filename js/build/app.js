@@ -1,7 +1,5 @@
 jQuery(document).ready(function($) {
-    
     //utilities
-    
     $(document).on('click', 'a[href*="#"]:not([href="#"])', function(e) {
 	    if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
 	        var target = $(this.hash);
@@ -35,6 +33,16 @@ jQuery(document).ready(function($) {
 	    autoplay: 8000,
 	    loop: true,
 	    speed: 1000
+	});
+
+	//menu
+	$(window).scroll(function() {
+	   if ($(window).scrollTop() > 300){
+	   		$('.c-header').addClass('is-sticky');
+	   }
+	   else{
+	   		$('.c-header').removeClass('is-sticky');
+	   	}
 	});
 
 });
