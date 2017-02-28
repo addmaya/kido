@@ -12,7 +12,7 @@
 		<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico"/>
 		<link href="<?php echo get_stylesheet_directory_uri(); ?>/style.css" rel="stylesheet">
 		<link href="<?php echo get_stylesheet_directory_uri(); ?>/js/vendors/swiper.css" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Lato:300,700|Open+Sans:300,400" rel="stylesheet">		
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Open+Sans:300,400" rel="stylesheet">		
 		<?php wp_head(); ?>
 	</head>
 	<body>
