@@ -84,7 +84,7 @@
 		</div>
 	</div>
 </section>
-<section class="u-bkg--grey u-relative o-section">
+<section class="o-section s--features">
 	<div class="u-box">
 		<div class="clear">
 			<div class="u-half">
@@ -190,6 +190,120 @@
 		</section>
 		<div class="u-align__center">
 			<a href="#" class="o-button">Talk to Us</a>
+		</div>
+	</div>
+</section>
+<section class="o-section s--responses">
+	<div class="c-tint">
+		<div class="u-box">
+			<div class="clear">
+				<div class="u-half">
+					<header class="o-section__header s--left">
+						<h2>What people are saying</h2>
+					</header>
+					<section>
+						<div class="swiper-container c-quotes">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<section>
+										<p>"The platform is user friendly and one that would benefit interested investors who have little time to follow markets"</p>
+										<span>Kenneth</span>
+									</section>
+								</div>
+								<div class="swiper-slide">
+									<section>
+										<p>"It forces you to be deliberate about your savings plan and take decisions based on professional advice."</p>
+										<span>Anne</span>
+									</section>
+								</div>
+								<div class="swiper-slide">
+									<section>
+										<p>"The idea of online investment advisory is very appealing. The convenience and ease of access should translate into a fairly affordable model."</p>
+										<span>Edgar</span>
+									</section>
+								</div>
+								<div class="swiper-slide">
+									<section>
+										<p>"The website is well designed, have confidence in the team manning it."</p>
+										<span>Juliana</span>
+									</section>
+								</div>
+								<div class="swiper-slide">
+									<section>
+										<p>"Very extensive explanations, very user friendly, flexibility in money transfer options."</p>
+										<span>Crystal</span>
+									</section>
+								</div>
+								<div class="swiper-slide">
+									<section>
+										<p>"Clear process of establishing investment risk appetite."</p>
+										<span>Stephen</span>
+									</section>
+								</div>
+								<div class="swiper-slide">
+									<section>
+										<p>"I can get professional financial advice at such an affordable rate."</p>
+										<span>Isaac</span>
+									</section>
+								</div>
+								<div class="swiper-slide">
+									<section>
+										<p>"Convenience, ease of navigation and quick response."</p>
+										<span>Meddie</span>
+									</section>
+								</div>
+								<div class="swiper-slide">
+									<section>
+										<p>"I like the questions about the investment profile of a potential investor and the way the results are displayed of a potential investment portfolio. I also like general look of it. Very easy to navigate."</p>
+										<span>Arkyam</span>
+									</section>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+				<div class="u-half">
+					<header class="o-section__header s--left">
+						<h2>Frequently Asked Questions</h2>
+					</header>
+					<section>
+						<div id="acdn-faq" class="acdn">
+							<h4>What is the minimum amount you can start with?</h4>
+							<div>
+								<p>Investors can start with as low as USh 100,000. We encourage every investor to have a disciplined periodic savings strategy in which they add to their investments for example every week or month.</p>	
+							</div>
+							<h4>How is it different from traditional financial/investment advice?</h4>
+							<div>
+								<p>Xeno automates the entire traditional investment advisory process and made it possible in about 10 minutes. Because it is accessible through the web, we are able to instantly compute your risk tolerance, recommend an asset allocation, and you can create and fund your account conveniently. We plan to make it accessible through a mobile app and eventually text. We ask you critical questions online and feed your responses to our algorithms to process them and make a dispassionate recommendation based on the information collected.</p>
+							</div>
+							<h4>What does it cost?</h4>
+							<div>
+								<p>We will charge an annual management fee of 2% of assets under management. To illustrate, if you start with USh 100,000 at the beginning of the year and this investment earns 20% return that year so that your ending balance is USh 120,000. We will compute the average balance in the account that year (i.e. 110,000 = (100,000+120,000)/2). The total management fee will be USh 2,200 for that year, which is 2% of USh 110,000, the average balance in your account over the year. This comes to roughly USh 183 per month.</p>	
+							</div>
+							<h4>Can I speak to an investment advisor?</h4>
+							<div>
+								<p>Yes! If at any time in the process you are unsure how to proceed or do not fully understand all the information provided or you simply just want to talk, we encourage you to reach us at the contacts provided under our Contact page.</p>
+							</div>
+							<h4>Can I open more than one account?</h4>
+							<div>
+								<p>Yes, as long as each of them has a minimum of USh 100,000. Many of our clients prefer to open separate accounts for each goal.</p>
+							</div>
+							<h4>What information will I need to provide in order to open up an account?</h4>
+							<div>
+								<p>We are obligated by the regulators to collect some minimum identification information about each of our clients. At the moment you will be asked for:</p>
+								<ul>
+									<li>Biographical details (e.g. Names, Date of birth, etc.)</li>
+									<li>Official document (e.g. National ID, Passport, and Driving Permit – names must match what is provided above)</li>
+									<li>Mailing address (e.g. P.O.BOX)</li>
+									<li>Physical address (e.g. Plot Number, Road/Street, County, District)</li>
+									<li>Phone number</li>
+									<li>Bank details</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

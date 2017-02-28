@@ -1,10 +1,10 @@
-<footer class="c-footer">
-	<div class="box">
-		<div class="u-clear">
+<footer class="c-footer o-section">
+	<div class="u-box">
+		<div class="clear">
 			<div class="u-half">
-				<section class="c-sitemap">
+				<section class="c-sitemap clear">
 					<div>
-						<h3>Site Map</h3>
+						<h3>Jump To</h3>
 						<ul>
 							<li><a href="#">Start Investing</a></li>
 							<li><a href="#">How Xeno works</a></li>
@@ -33,10 +33,10 @@
 								<a href="tel:+256392177488" target="_blank">+256 392 177 488</a>
 							</li>
 							<li>
-								<a href="https://www.facebook.com/XenoUganda" target="_blank">/ XenoUganda</a>
+								<a href="https://www.facebook.com/XenoUganda" target="_blank">Facebook / XenoUganda</a>
 							</li>
 							<li>
-								<a href="https://twitter.com/XenoUganda" target="_blank"> @XenoUganda</a>
+								<a href="https://twitter.com/XenoUganda" target="_blank"> Twitter / @XenoUganda</a>
 							</li>
 						</ul>
 					</div>
@@ -63,6 +63,8 @@
 				</section>
 			</div>
 		</div>
-		<p>&copy; 2016 Xeno - Online Investment Advisory. All Rights Reserved.</p>
+		<div class="u-align__center">
+			<p>&copy; 2016 Xeno - Online Investment Advisory. All Rights Reserved.</p>
+		</div>
 	</div>
 </footer>

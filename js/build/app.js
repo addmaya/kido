@@ -28,7 +28,14 @@ jQuery(document).ready(function($) {
 	    effect: 'fade'
 	});
 
-	//
+	//quotes
+	var quotes = new Swiper('.c-quotes', {
+	    paginationClickable: true,
+	    pagination: '.swiper-pagination',
+	    autoplay: 8000,
+	    loop: true,
+	    speed: 1000
+	});
 
 });
 
