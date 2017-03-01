@@ -20,14 +20,14 @@
 							<li><a href="#">Terms of Use</a></li>
 							<li><a href="#">Privacy Policy</a></li>
 							<li><a href="#">Copyright Policy</a></li>
-							<li><a href="#">BOU Certificate</a></li>
+							<li><a href="#">CMA Licence</a></li>
 						</ul>
 					</div>
 					<div>
 						<h3>Contact</h3>
 						<ul>
 							<li>
-								<a href="#">26 Buganda Road <br/>Kampala, Uganda</a>
+								<a href="#">6th Floor, Workers House, <br/>1 Pilkington Road <br/>Kampala, Uganda</a>
 							</li>
 							<li>
 								<a href="tel:+256392177488" target="_blank">+256 392 177 488</a>
@@ -64,7 +64,7 @@
 			</div>
 		</div>
 		<div class="u-align__center">
-			<p>&copy; 2016 Xeno - Online Investment Advisory. All Rights Reserved.</p>
+			<p>Copyright &copy; 2017 Xeno Technologies, Inc. All rights, reserved.</p>
 		</div>
 	</div>
 </footer>

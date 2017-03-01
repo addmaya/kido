@@ -7,7 +7,7 @@
 					<div class="u-cell">
 						<div class="u-box">
 							<section>
-								<h1>Xeno is an automated service that advises and executes your Investment Strategy</h1>
+								<h1>Xeno Offers Professional Investment advice inexpensively.</h1>
 								<a href="<?php echo home_url(); ?>/wizard" class="o-button">Get Started</a>
 							</section>
 						</div>
@@ -19,7 +19,7 @@
 					<div class="u-cell">
 						<div class="u-box">
 							<section>
-								<h1>Investing through Xeno is fast, convenient, and accessible to anyone.</h1>
+								<h1>Investing through Xeno is fast, convenient, and accessible to everyone.</h1>
 								<a href="<?php echo home_url(); ?>/wizard" class="o-button">Get Started</a>
 							</section>
 						</div>
@@ -31,7 +31,7 @@
 					<div class="u-cell">
 						<div class="u-box">
 							<section>
-								<h1>Xeno offers you professional investment advice inexpensively.</h1>
+								<h1>Xeno is an automated investment management service.</h1>
 								<a href="<?php echo home_url(); ?>/wizard" class="o-button">Get Started</a>
 							</section>
 						</div>
@@ -44,43 +44,43 @@
 <section class="o-section s--process" id="process">
 	<div class="u-box">
 		<header class="o-section__header">
-			<h2>Automated Advise to Execution</h2>
-			<p>In less than 5 minutes, Xeno is an Online Investment Advisory and Execution Service. We combine math, technology, and tested financial theory to invest your savings and help you attain your financial goals.</p>
+			<h2>Automated Investment Management</h2>
+			<p>By combining technology with both behavioural and traditional finance theory, Xeno lets you plan, save, and invest your earnings effortlessly.</p>
 		</header>
 		<section>
 			<ul class="c-process">
 				<li>
 					<section>
 						<span class="o-icon s--goals"></span>
-						<h3>We learn about <br/><span>your Goals</span></h3>
-						<p>Answer a few questions about your current financial situation, investment knowledge, and attitude towards risk.</p>
+						<h3>Set your Goal</h3>
+						<p>Answer a few questions about your goals, time horizon, current financial situation, investment knowledge, and feelings about risk.</p>
 					</section>
 				</li>
 				<li>
 					<section>
 						<span class="o-icon s--design"></span>
-						<h3>We design your <span>Investment portfolio</span></h3>
-						<p>Your risk tolerance and goals are optimized to create an investment portfolio suitable to meet your goals.</p>
+						<h3>Design your strategy</span></h3>
+						<p>Based on your answers, Xeno determines your tolerance for risk and then recommends an investment portfolio based on it.</p>
 					</section>
 				</li>
 				<li>
 					<section>
 						<span class="o-icon s--profile"></span>
-						<h3>Create Your <span>profile</span></h3>
-						<p>Once logged into your secured profile, you will finally be prompted to fund your investment account.</p>
+						<h3>Create your profile</span></h3>
+						<p>Create your investment account in a few steps by providing personal details, log in and transfer funds to it using various payments methods.</p>
 					</section>
 				</li>
 				<li>
 					<section>
 						<span class="o-icon s--monitor"></span>
-						<h3>We Execute <span>You Monitor</span></h3>
-						<p>Our investment managers will execute the strategy and you can monitor the investment performance 24/7.</p>
+						<h3>Monitor your strategy</h3>
+						<p>Our team of investment professionals will execute your investment strategy and you will monitor deposits and performance 24/7.</p>
 					</section>
 				</li>
 			</ul>
 		</section>
 		<div class="u-align__center">
-			<a href="#" class="o-button">Try Xeno Free</a>
+			<a href="#" class="o-button">Invest Now</a>
 		</div>
 	</div>
 </section>
@@ -90,14 +90,14 @@
 			<div class="u-half">
 				<header class="o-section__header s--left">
 					<h2>Optimize Returns</h2>
-					<p>Our team combines smart technology and deep knowledge about the regional financial markets to offer you optimal investment solutions.</p>
+					<p>Our team combines smart technology and a deep knowledge of financial markets to design a customized investment strategy for you.</p>
 				</header>
 				<section>
 					<ul class="c-features clear">
 						<li class="u-half">
 							<section>
 								<h3>Xeno Algorithm</h3>
-								<p>The first of its kind in Africa, the Xeno Algorithm intelligently maps your risk tolerance to a suitable portfolio.</p>
+								<p>One of the first of its kind in Africa, the Xeno Algorithm intelligently maps your risk tolerance to a suitable investment portfolio.</p>
 							</section>
 						</li>
 						<li class="u-half">
@@ -108,18 +108,18 @@
 						</li>
 						<li class="u-half">
 							<section>
-								<h3>Monitoring</h3>
-								<p>Xeno is an intuitive and beautifully designed platform you will find easy to use in monitoring your investment portfolio.</p>
-							</section>
-						</li>
-						<li class="u-half">
-							<section>
 								<h3>Expertise</h3>
 								<p>Xeno provides you access to professional investment advice and execution from experts in a few clicks.</p>
 							</section>
 						</li>
+						<li class="u-half">
+							<section>
+								<h3>Monitoring</h3>
+								<p>Xeno is an intuitive and beautifully designed platform you will find easy to use in monitoring your investment portfolio.</p>
+							</section>
+						</li>					
 					</ul>
-					<a href="#" class="o-button">Try Xeno Free</a>
+					<a href="#" class="o-button">Get Started</a>
 				</section>
 			</div>
 		</div>
@@ -130,7 +130,7 @@
 	<div class="u-box">
 		<header class="o-section__header">
 			<h2>A team you can trust</h2>
-			<p>Our team blends experts with experience developing applications for Wall Street firms alongside those with extensive experience investing in African financial markets.</p>
+			<p>Our team blends extensive domain expertise investing in African financial markets with experience developing software applications for Wall Street firms.</p>
 		</header>
 		<section>
 			<ul class="c-staff">
@@ -153,7 +153,7 @@
 						<section>
 							<div>
 								<h3>Yury Ovetsky</h3>
-								<span class="u-subtitle">Co-founder and Chief Technology Officer</span>
+								<span class="u-subtitle">Chief Technology Officer</span>
 								<p>20+ years as a developer building software for Wall St firms including Morgan Stanley, Deutsche, AIG, AXA, KCG, etc. Founded ihelpster.com, a startup that recommends services in different parts of the US. </p>
 								<span class="o-caption">Education: BS Computer Information Science – Khmelnitsky Polytechnic College.</span>
 							</div>
@@ -166,7 +166,7 @@
 						<section>
 							<div>
 								<h3>Grace Semakula, CFA</h3>
-								<span class="u-subtitle">Director, QuantEast Advisory</span>
+								<span class="u-subtitle">Director</span>
 								<p>Grace spent several years working on the floor of Uganda Securities Exchange handling some of the biggest deals that have taken place on the Ugandan market. He brings over 5 years’ experience managing the equity portfolio for NSSF Uganda.</p>
 								<span class="o-caption">Education: BSc Mathematics and Statistics – Makerere University.</span>
 							</div>
@@ -179,8 +179,8 @@
 						<section>
 							<div>
 								<h3>Brian Ongodia</h3>
-								<span class="u-subtitle">Investment Analyst, QuantEast Advisory</span>
-								<p>Brian has previously worked at African Alliance Uganda. He is our in-house research analyst covering the financial markets in the East African region. Brian’s core competencies include equity and fixed income investment research.</p>
+								<span class="u-subtitle">Investment Associate</span>
+								<p>Brian has previously worked at QuantEast Advisory and African Alliance Uganda. He is our in-house research analyst covering the financial markets in the East African region. Brian’s core competencies include equity and fixed income research.</p>
 								<span class="o-caption">Education: BSc Financial Mathematics – Uganda Martyr's University.</span>
 							</div>
 						</section>
