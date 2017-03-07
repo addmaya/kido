@@ -45,5 +45,40 @@ jQuery(document).ready(function($) {
 	   	}
 	});
 
+	//inputs
+	$('select').change(function() {
+		$(this).blur();
+	});
+
+	$('.o-input input').blur(function() {
+	  var me = $(this);
+	  var placeholder = me.attr('placeholder');
+	  var value = me.val();
+	  
+	  if(value){
+	    if(me.attr('type') != 'number'){
+	    	me.val(placeholder+': '+value);
+		}
+		else {
+			me.val(value);
+		}
+	  }
+	});
+
+	$('.o-input input').click(function() {
+	  var me = $(this);
+	  var placeholder = me.attr('placeholder')+': ';
+	  var value = me.val();
+	  
+	  if(me.attr('type') != 'number'){
+	  		me.val(value.substr(placeholder.length));
+	    }
+	    else {
+	    	me.val(value);
+	    }
+	  
+	});
+
+
 });
 

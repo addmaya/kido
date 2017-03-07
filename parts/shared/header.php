@@ -1,4 +1,4 @@
-<section class="c-header">
+<section class="c-header <?php if(!is_front_page()){echo 'is-page';} ?>">
 	<div class="u-box">
 		<div class="clear">
 			<a href="#" class="c-logo"></a>

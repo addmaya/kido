@@ -46,14 +46,16 @@ $black:#707879;
 .u-half{width: 50%;float: left;}
 .u-relative{position: relative;}
 .u-subtitle{color: #84a8b3; display: block; font-size: 0.875em}
+.u-right{float:right;}
+.u-link{color: $blue;}
 
 /*objects*/
 html,body{width:100%; height:100%}
 a{color:inherit;}
-body{background-color:white; color:$black; @include opensans; font-size: 0.95em}
+body{background-color:white; color:$black; @include opensans; font-size: 0.95em; font-weight: 300}
 h1{font-size: 2.5em; font-weight: 300; line-height: 1.4}
-h2{font-size: 1.8em; line-height: 1.2; font-weight: 300; color: $blue; @include lato; }
-h3{font-size: 1em; line-height: 1.5; color: $blue; @include lato; text-transform: uppercase; font-weight: 400;
+h2, .o-fieldset__title{font-size: 1.8em; line-height: 1.2; font-weight: 300; color: $blue; @include lato}
+h3{font-size: 0.9em; line-height: 1.5; color: $blue; @include lato; text-transform: uppercase; font-weight: 400;
   span{display: block; font-size: 0.75em; color: #84a8b3;}
 }
 p{line-height: 1.8}
@@ -104,7 +106,7 @@ p{line-height: 1.8}
   }
 }
 .o-input{position: relative; margin-bottom: 1em;
-  input, textarea{padding: 0.75em 0 1.2em; border-bottom: solid 1px #dcdcdc; font-weight: 300; font-size: 1em; @include opensans; width: 100%; color: $blue;
+  input, textarea{padding: 0.75em 0 1.2em; border-bottom: solid 1px #dcdcdc; @include opensans; width: 100%; color: $blue; font-weight: 300;
     &:focus{border-color:transparent;
       &+span{@include prefix((transform: scale(1,1)))}
     }
@@ -114,10 +116,45 @@ p{line-height: 1.8}
   }
   span{height: 2px; bottom: 0em; left: 0; @include prefix((transform: scale(0, 1))); @include prefix((transform-origin: 0% 0%)); @include prefix((transition: transform 0.2s ease)); background-color: $blue; width: 100%; position: absolute; z-index: 2;}
 }
+.o-radio{display: inline-block;
+  input{border-radius:2em; height:1.875em; width:1.875em; background-color:#d8d8d8; position: relative; border:solid 1px #d8d8d8;
+    &:after{content:""; width: 100%; height: 100%; position: absolute; z-index:1; top:0; right:0; border-radius:50%; background-color: white; transition:background-color 0.3s ease, transform 0.3s ease}
+    &:checked{background-color: white;
+      &:after{width: 100%; height: 100%; position: absolute; z-index:1; top:0; right:0; background-color: $blue; border-radius:50%; transform: scale(0.5,0.5)}
+      &:hover{background-color: white}
+    }
+    &:hover{background-color: darken($blue, 5%); 
+      &:after{transform:scale(0.5, 0.5)}
+    }
+  }
+  label{position: relative; top: -0.75em; cursor: pointer}
+}
+.o-file{display: inline-block;
+  input{width:0.1px; height:0.1px; opacity:0; overflow:hidden; position: absolute; z-index:-1}
+}
+.o-check{display: block;
+  input{border-radius:0.2em; height:1.875em; width:1.875em; position: relative; border:solid 1px #d8d8d8; @include prefix((transition: border-width 0.1s ease));
+    &:checked{
+      &:before{content:""; @include image('check.svg'); -webkit-background-size: contain; background-size: contain; background-position: center; background-repeat: no-repeat; position: absolute; height:60%; width:60%; color:$green; z-index:1; top:0.3125em; left:0.3125em}
+    }
+    &:hover{border-width: 3px}
+  }
+  label{position: relative; top:-0.75em; margin-left: 0.5em; cursor: pointer}
+}
+.o-upload{border-bottom:solid 1px #d8d8d8; margin-bottom: 0.75em; padding-top: 0.5em; 
+  legend{float: left; margin-right: 1.2em; position: relative; top:-0.4375em}
+}
+.o-select{
+  select{color:inherit; display: block; width: 100%; border-bottom:solid 1px #d8d8d8; padding: 0.75em 0 1.2em; @include image('arrow-down.svg'); background-position: right center; background-size: 0.875em; background-repeat: no-repeat; font-weight: 300;
+    &:focus{@include image('arrow-up.svg')}
+  }
+  span.o-line{margin-bottom: 0;}
+}
 .o-faq{padding-bottom: 2.5em;
   h3{margin-bottom: 0.75em}
   p{font-family: 'Georgia'; font-style: italic;}
 }
+.o-line{width: 100%; height: 1px; background-color: #dcdcdc; display: block;}
 
 /*components*/
 .c-header{position: fixed; top:0; z-index: 2; left:0; width: 100%; color: $white; padding:1.2em 0; @include prefix((transition: color 0.3s ease));
@@ -126,14 +163,18 @@ p{line-height: 1.8}
   }
   &.is-sticky{color: $black;
     .u-box:after{@include prefix((transform:scale(1,1)))}
+    .c-logo{@include image('logo-dark.svg')}
+  }
+  &.is-page{background-color:$blue; color: white;
+    .u-box:after{@include prefix((transform:scale(0,0)))}
+    .c-logo{@include image('logo.svg')}
   }
 }
 .c-logo{width: 5em; height: 1.5em; @include image('logo.svg'); background-size: contain;  background-repeat: no-repeat; display: block; float: left; margin-left: 0.75em;
-  .is-sticky &{@include image('logo-dark.svg');}
 }
 .c-menu{float: right;
   li{display: inline-block; margin-right: 0.75em}
-  a{text-transform: uppercase; padding: 0.75em; font-size: 0.75em; @include lato; display: block; position: relative; font-weight: 700}
+  a{text-transform: uppercase; padding: 0.75em; font-size: 0.75em; @include lato; display: block; position: relative; font-weight: 400}
 }
 .c-slider__wrap{width: 100%; height: 80%;}
 .c-slider{height: 100%; width: 100%; text-align: center; color:white;
@@ -184,4 +225,23 @@ $c-footer_color: darken(#a0b5bb, 5%);
   span{display: block; text-transform: uppercase; margin-top: 1.5em;font-size: 0.875em}
   p{font-family: 'Georgia'; font-style: italic}
   section{padding-right:1.5em;}
+}
+.c-enroll{width: 55%; margin: 0 auto;
+  header{margin-bottom: 3em; padding-top:7em; font-size: 0.875em}
+  footer{margin-top: 2.5em;
+    p{margin-bottom: 1.5em;}
+  }
+  .o-fieldset{margin-bottom:2.5em; @extend .clear;
+    fieldset{
+      legend{padding:1.2em 0; line-height: 1.5}
+    }
+  }
+  li{margin-bottom: 2em;}
+  .o-fieldset__title{margin-bottom:0.75em}
+  .o-radio{margin-right:0.75em}
+  .o-line{margin: 0.75em auto;}
+  ::-webkit-input-placeholder {color: $black}
+  ::-moz-placeholder {color: $black}
+  :-ms-input-placeholder {color: $black}
+  :-moz-placeholder {color: $black}
 }
