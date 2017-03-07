@@ -54,7 +54,7 @@ jQuery(document).ready(function($) {
 	  var me = $(this);
 	  var placeholder = me.attr('placeholder');
 	  var value = me.val();
-	  
+
 	  if(value){
 	    if(me.attr('type') != 'number'){
 	    	me.val(placeholder+': '+value);
@@ -79,6 +79,7 @@ jQuery(document).ready(function($) {
 	  
 	});
 
+	$('.o-date').flatpickr();
 
 });
 
