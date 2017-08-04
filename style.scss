@@ -6,12 +6,10 @@ Author URI: http://addmaya.com/
 
 @import 'reset';
 @import 'animate';
-@import 'node_modules/flatpickr/dist/flatpickr';
-
 
 /*variables*/
 $blue:#238cad;
-$green:#45d09d;
+$green:#3fb78b;
 $purple:#8151aa;
 $grey:#bdc3c7;
 $white:#ecf0f1;
@@ -20,14 +18,14 @@ $black:#707879;
 @mixin opensans{font-family: 'Open Sans', sans-serif}
 
 /*functions*/
-@mixin image($image){background-image: url('images/'+$image)}
+@mixin image($image){background-image: url('../../images/eclipse/'+$image)}
 @mixin device($device){
   @if $device == xs {@media only screen and (max-width: 767px){@content}}
   @else if $device == xs-landscape{@media only screen and (max-width: $tablet - 1) and (orientation : landscape){@content}}
   @else if $device == sm {@media only screen and (max-width: 959px){@content}}
   @else if $device == md{@media only screen and (max-width: 1200px){@content}}
   @else if $device == lg{@media only screen and (max-width: 1600px){@content}}
-  @else if $device == xlg{@media only screen and (min-width:1900px){@content}}
+  @else if $device == xlg{@media only screen and (min-width:2000px){@content}}
 }
 @mixin prefix($map, $vendors: webkit moz ms o) {
   @each $prop, $value in $map {
@@ -41,85 +39,154 @@ $black:#707879;
 }
 
 /*utilities*/
-.u-box{width:75em; margin:0 auto}
+.u-box{width:75em; margin:0 auto;
+  &.s--medium{width: 45em}
+  &.s--narrow{width: 30em}
+  @include device(md){width:90%;
+    &.s--medium{width: 90%;}
+  }
+}
 .u-table{display: table}
 .u-cell{display: table-cell}
 .u-align__center{text-align: center}
-.u-half{width: 50%;float: left;}
+.u-half{width: 50%;float: left;
+  @include device(xs){width: auto; float: none;}
+}
 .u-relative{position: relative;}
 .u-subtitle{color: #84a8b3; display: block; font-size: 0.875em}
 .u-right{float:right;}
 .u-link{color: $blue;}
+.u-hide{display: none}
+.u-col-65p{float: left; width: 65%;
+  @include device(xs){float:none; width: auto}
+}
+.u-col-35p{float: left; width: 35%;
+  @include device(xs){float:none; width: auto}
+}
+.u-pdt-24p{padding-top: 1.5em}
+.u-positive{color: $green;}
+.u-negative{color: orange;}
+.u-footnote{font-size: 0.75em; padding: 1.5em 0; display: block; line-height: 1.6}
 
 /*objects*/
-html,body{width:100%; height:100%}
+html,body{width:100%; height:100%;
+  @include device (xlg){width: 85%; margin: 0 auto;}
+}
 a{color:inherit;}
-body{background-color:white; color:$black; @include opensans; font-size: 0.95em; font-weight: 300}
-h1{font-size: 2.5em; font-weight: 300; line-height: 1.4}
-h2, .o-fieldset__title{font-size: 1.8em; line-height: 1.2; font-weight: 300; color: $blue; @include lato}
+body{background-color:#f9f9f9; color:$black; @include opensans; font-size: 0.95em; font-weight: 300;
+  &.is-dashboard{background-color: #eeeff0}
+}
+h1{font-size: 2.5em; font-weight: 300; line-height: 1.4;
+  @include device(xs){font-size:1.8em}
+}
+h2, .o-fieldset__title{line-height: 1.3; font-weight: 300; color: $blue; @include lato; font-size: 1.4em}
+h2 span{font-size:65%; display: block}
 h3{font-size: 0.9em; line-height: 1.5; color: $blue; @include lato; text-transform: uppercase; font-weight: 400;
   span{display: block; font-size: 0.75em; color: #84a8b3;}
 }
+h4{font-weight: 400; font-family: 'Lato', sans-serif; font-size: 0.75em; text-transform: uppercase;}
 p{line-height: 1.8}
+strong, b{font-weight:400}
+::-webkit-input-placeholder {color: $black}
+::-moz-placeholder {color: $black}
+:-ms-input-placeholder {color: $black}
+:-moz-placeholder {color: $black}
 
-.o-button{color: white; padding: 1em 2.5em; border-radius: 2em; display: inline-block; background-color: $blue; position: relative; @include prefix((transition: background-color 0.3s ease));
-  &:after{content: ""; height: 2px; background-color: $green; width: 30%; position: absolute; top: 50%; left: 85%; @include prefix((transform: scale(0, 1))); @include prefix((transition: transform 0.3s ease)); @include prefix((transform-origin: 0% 0%))}
-  &:hover{background-color: darken($blue, 10%);
-    &:after{@include prefix((transform: scale(1,1)));}
-  }
+.o-fieldset__title{margin-bottom:0.75em}
+.o-button{color: white; padding: 1em 2.5em; border-radius: 2em; display: inline-block; background-color: $blue; position: relative; @include prefix((transition: background-color 0.3s ease)); @include opensans; font-weight:100;
+  &:hover{background-color: darken($blue, 20%);}
   &.t-dark{background-color: transparent; border: solid 2px white;
     &:hover{background-color: $blue; border-color: transparent;}
   }
+  &.s--back, &.s--restart{background-color: transparent; color: $grey; border:solid 1px $grey;
+    &:after{left: auto; right: 85%; @include prefix((transform-origin: 100% 0%))}
+    &:hover{background-color: darken($blue, 10%); color: #fff; border-color: $blue;}
+  }
+  &.s--light{background-color: #eeeff0; color:#9fa7aa; padding: 0.75em 1.5em; font-size: 0.8em;
+    &.is-active{background-color: $blue; color: #fff}
+  }
+  &.s--thin{padding: 0.75em 1.5em; font-size: 0.8em; color: $green; border: solid 1px $green; background-color: transparent;
+    &:hover{background-color: $green; color: white;}
+  }
+  @include device(sm){padding:1em 2em;
+    .s--responses &{margin-bottom:0.5em}
+  }
 }
-.o-icon{display: block; width: 1.5em; height: 1.5em; background-repeat: no-repeat; background-position: center; background-size: contain;
+.o-icon{display: inline-block; width: 1.5em; height: 1.5em; background-repeat: no-repeat; background-position: center; background-size: contain;
   &.s--goals{@include image('icons/avatar.svg')}
   &.s--design{@include image('icons/line-graph.svg')}
   &.s--profile{@include image('icons/padlock.svg')}
   &.s--monitor{@include image('icons/devices.svg')}
+  &.s--fb{@include image('icons/fb.svg')}
+  &.s--tw{@include image('icons/tw.svg')}
+  &.s--mail{@include image('icons/mail.svg')}
+  &.s--tick{@include image('icons/tick.svg')}
+  &.s--minus{@include image('icons/minus_disabled.svg');
+    &.is-active{@include image('icons/minus.svg')}
+  }
+  &.s--plus{@include image('icons/plus_disabled.svg');
+    &.is-active{@include image('icons/plus.svg')}
+  }
+  &.s--down{@include image('arrow-down-white.svg')}
+  &.s--arrow-ltr{@include image('arrow-ltright.svg')}
 }
 .o-staff{@extend .clear; margin-bottom: 2.5em;
-  figure{height: 15em; width: 15em; margin-bottom: 1.5em; border-radius: 7.5em; background-position: center; float: left; background-color: #000; -webkit-background-size: cover; background-size: cover;}
+  figure{height: 15em; width: 15em; margin-bottom: 1.5em; border-radius: 7.5em; background-position: center; float: left; background-color: $grey; -webkit-background-size: cover; background-size: cover;}
   section{width: 55%; float:left}
   div{border-left:solid 1px #c6d6ea; padding-left: 1em; margin-left: 0.6em;}
   h3{margin-bottom: 1em;}
   .u-subtitle{margin-bottom: 2.5em;}
   .o-caption{display: block; margin-top: 1.5em;}
+  @include device (md){
+    section{width: auto}
+  }
+  @include device(xs){
+    figure{float:none; width: 10em;height: 10em;}
+    div{border:none; padding-left: 0; margin-left: 0;}
+  }
 }
 .o-caption{font-style: italic; font-family: 'Georgia'; font-size: 0.875em; line-height: 1.5; color: $grey}
-.o-section{padding-bottom: 4.5em;
+.o-section{padding-bottom: 4.5em; background-color:white;
+  &.c-footer{background-color:transparent;
+    @include device(xlg){background-color: #f1f1f1}
+  }
+  &.s--firstchild{padding-top:4.5em}
   &.s--process{@include image('xenox.svg'); background-size: 100%; background-position: center top;}
   &.s--team{@include image('xenox_line.svg'); background-size: 2%}
-  &.s--responses{@include image('macbook.jpg'); background-position: center; -webkit-background-size: cover; position: relative; padding-bottom: 0;
-  background-size: cover; color:#fff;
+  &.s--responses{@include image('macbook.jpg'); background-position: center; -webkit-background-size: cover; position: relative; padding-bottom: 0; background-size: cover; color:#fff;
     h2{color: inherit;
       &:after{background-color:#fff}
     }
     h3{color: inherit;}
-    .o-button{margin-right: 1em}
+    .o-button{margin-right: 1em;
+      @include device(xs){margin-right: 0}
+    }
   }
   &.s--features{position: relative; background-color: $white}
 }
-.o-section__header{width: 55%; margin:0 auto 2.5em; text-align: center; padding-top: 4.5em;
+.o-section__header{width: 60%; margin:0 auto 2.5em; text-align: center; padding-top: 4.5em;
   h2{position: relative; margin-bottom: 1.5em;
     &:after{content:""; width: 10%; height: 2px; background-color: $green; margin: 0 auto; display: block; margin-top: 1em;}
   }
   &.s--left{text-align: left; margin:0; width: auto; padding-right:1.5em;
     h2:after{margin:1em 0 0;}
   }
+  @include device(xs){width:auto;}
 }
 .o-input{position: relative; margin-bottom: 1em;
   input, textarea{padding: 0.75em 0 1.2em; border-bottom: solid 1px #dcdcdc; @include opensans; width: 100%; color: $blue; font-weight: 300;
     &:focus{border-color:transparent;
       &+span{@include prefix((transform: scale(1,1)))}
     }
-    .c-footer &{border-color: #a0b5bc;
+    .c-footer &{border-color: #d5d5d6;
       &:focus{border-color:transparent}
     }
   }
   span{height: 2px; bottom: 0em; left: 0; @include prefix((transform: scale(0, 1))); @include prefix((transform-origin: 0% 0%)); @include prefix((transition: transform 0.2s ease)); background-color: $blue; width: 100%; position: absolute; z-index: 2;}
+  &.s--clear{margin-bottom: 0 !important; margin-top: 0 !important;}
 }
-.o-radio{display: inline-block;
-  input{border-radius:2em; height:1.875em; width:1.875em; background-color:#d8d8d8; position: relative; border:solid 1px #d8d8d8;
+.o-radio{display: block; @extend .clear;
+  input{border-radius:2em; height:1.875em; width:1.875em; background-color:#d8d8d8; position: relative; border:solid 1px #d8d8d8; cursor: pointer; display: inline-block; vertical-align: middle;
     &:after{content:""; width: 100%; height: 100%; position: absolute; z-index:1; top:0; right:0; border-radius:50%; background-color: white; transition:background-color 0.3s ease, transform 0.3s ease}
     &:checked{background-color: white;
       &:after{width: 100%; height: 100%; position: absolute; z-index:1; top:0; right:0; background-color: $blue; border-radius:50%; transform: scale(0.5,0.5)}
@@ -129,7 +196,16 @@ p{line-height: 1.8}
       &:after{transform:scale(0.5, 0.5)}
     }
   }
-  label{position: relative; top: -0.75em; cursor: pointer}
+  label{display: inline-block; vertical-align: middle; cursor: pointer; margin-left: 0.5em; @include prefix((transition:color 0.2s ease)); cursor: pointer; position: relative; top:2px;
+    &:hover{color: $blue;}
+  }
+  @include device(xs){
+    label{line-height: 1.8; width: 80%}
+  }
+  &.s--inline{display: inline-block;}
+}
+.o-radio-list{margin:1em 0;
+  span{display: block; margin: 1em 0}
 }
 .o-file{display: inline-block;
   input{width:0.1px; height:0.1px; opacity:0; overflow:hidden; position: absolute; z-index:-1}
@@ -147,40 +223,156 @@ p{line-height: 1.8}
   legend{float: left; margin-right: 1.2em; position: relative; top:-0.4375em}
 }
 .o-select{
-  select{color:inherit; display: block; width: 100%; border-bottom:solid 1px #d8d8d8; padding: 0.75em 0 1.2em; @include image('arrow-down.svg'); background-position: right center; background-size: 0.875em; background-repeat: no-repeat; font-weight: 300;
+  select{color:inherit; display: block; width: 100%; border-bottom:solid 1px #d8d8d8; padding: 0.75em 0 1.2em; @include image('arrow-down.svg'); background-position: right 1.0625em; background-size: 0.875em; background-repeat: no-repeat; font-weight: 300; padding-right: 1.5em; @include opensans; font-weight: 300;
     &:focus{@include image('arrow-up.svg')}
   }
   span.o-line{margin-bottom: 0;}
 }
-.o-faq{padding-bottom: 2.5em;
-  h3{margin-bottom: 0.75em}
-  p{font-family: 'Georgia'; font-style: italic;}
+.o-fieldset{margin-bottom:2.5em; @extend .clear;
+  fieldset{
+    legend{padding:1.2em 0; line-height: 1.5}
+  }
+  .picker__holder{outline: none}
 }
-.o-line{width: 100%; height: 1px; background-color: #dcdcdc; display: block;}
 
+.o-form{
+  .o-list{padding:1em 0 1.5em}
+  .o-button{margin-top:1.5em;}
+  header{margin-bottom:1.5em;font-size:0.875em}
+  .o-form__errors{color: #ff6e00; padding-top:1.5em;
+    li{padding:0.625em 0; line-height:1.8}
+  }
+}
+.o-form-section__title{margin-bottom: 1em}
+
+.o-line{width: 100%; height: 1px; background-color: #dcdcdc; display: block;
+  &.s--invisible{background-color:transparent}
+}
+.o-list{font-size:0.875em;
+  &.s--inline{
+    a{margin-right:1.5em}
+  }
+  a:hover{color: $blue}
+}
+.o-step{display: inline-block;
+  a{display: inline-block; border: solid 1px $grey; border-radius: 1.5em;
+    &.is-active{border-color: $blue}
+  }
+}
+.o-step__value{padding: 0 0.5em; position: relative; top:-0.4375em; display: inline-block !important; color: $blue}
+.o-submenu{display: none; position: absolute; top:2.5em; left:0; width: 10em;
+  a{background-color: darken($blue, 5%); padding: 0.75em; display: block; font-size: 0.875em;
+    &:hover{background-color: darken($blue, 8%);}
+  }
+}
+.o-panel{background-color: #fff; border-radius: 3px; margin: 0 auto;  width: 65%; margin-bottom: 1.5em; box-shadow:0 2px 0px #e1e2e2;
+  &.s--header{background-color: transparent; box-shadow: none; padding-top: 2em;
+    h1{font-size: 2em; color: $blue; display: inline-block;}
+    .u-right{display: inline-block; position: relative; top:0.5em; z-index: -1}
+  }
+  .u-chart{padding-top: 2.5em}
+}
+.o-panel__wrap{padding:1em}
+.o-panel__header{@extend .clear; padding-bottom: 2em;
+  h2{display: inline-block;}
+  a{float:right; margin-left: 0.5em}
+  .o-icon{height: 0.75em; width: 0.75em; @include image('arrow-down.svg')}
+}
+
+.o-metric{display: inline-block; margin-right: 4em; float: left;
+  .o-metric__label{@include lato; text-transform: uppercase; font-size: 0.75em; display: block; margin-bottom:1em; font-weight:400}
+  .o-metric__data{font-size: 1.2em; display: block; color: $blue;}
+}
+.o-table{
+  .o-table__head{text-transform: uppercase; @include lato; font-weight: 400; font-size: 0.75em; padding-bottom: 1.5em !important}
+  .o-table__row{border-bottom: solid 1px #e7e7e7; @extend .clear;padding: 0.75em 0 }
+  span{display: block; float: left}
+  &.s--four{
+    span{width: 25%}
+  }
+  &.s--five{
+    span{width: percentage(1/5)}
+  }
+}
+.o-story{padding-top:2em;
+  h1{padding-bottom: 2em; color: $green;}
+  h3{color: $black}
+  section{padding-bottom:3em}
+  ol,ul{margin: 0 auto; width: 85%; padding: 2em 0;
+    &:last-child{padding-bottom:0;}
+  }
+  ol{list-style: decimal;}
+  ul{list-style: circle;}
+  li{margin-bottom: 2em; line-height: 1.5}
+}
+.o-faq{border-bottom:solid 1px #e6e6e6; padding-bottom: 2em; margin-bottom: 2.5em;
+  h3{margin-bottom: 0.75em}
+  h2{padding-bottom:1em}
+  
+  &.s--home{padding-bottom: 2.5em; margin-bottom: 0; border-bottom: none;
+    p{font-family: 'Georgia'; font-style: italic}
+  }
+}
+
+#otherSource{margin-top: 1em}
+#discoveryOptions{margin-bottom:1em}
+.o-footnote{font-size:0.875em; color: #35a77d}
 /*components*/
-.c-header{position: fixed; top:0; z-index: 2; left:0; width: 100%; color: $white; padding:1.2em 0; @include prefix((transition: color 0.3s ease));
-  .u-box{position: relative;
-    &:after{content:""; position: absolute; top:-1.2em; left:0; z-index: -1; background-color: $white; @include prefix((transform-origin: 0% 0%)); @include prefix((transition: transform 0.5s ease)); height: 200%; width: 100%; @include prefix((transform:scale(1,0)))}
+.c-header{ width: 100%; color: $white; padding:1em 0; @include prefix((transition: color 0.3s ease)); background-color:$blue;
+  &:after{content:""; background-color: $blue; @include prefix((transform-origin: 0% 0%)); @include prefix((transition: transform 0.5s ease)); height: 125%; width: 100%; @include prefix((transform:scale(1,0)));
+    @include device(xlg){width: 72%; left:14%}
   }
-  &.is-sticky{color: $black;
-    .u-box:after{@include prefix((transform:scale(1,1)))}
-    .c-logo{@include image('logo-dark.svg')}
+  &.is-sticky{
+    &:after{@include prefix((transform:scale(1,1)))}
+    a span{background-color: $blue;}
   }
-  &.is-page{background-color:$blue; color: white;
-    .u-box:after{@include prefix((transform:scale(0,0)))}
-    .c-logo{@include image('logo.svg')}
+  &.is-home{position: fixed; top:0; z-index: 2; left:0; background-color: transparent;
+    &:after{position: absolute; top:-1.2em; left:0; z-index: -1;}
+  }
+  .is-dashboard &{padding: 0.75em 0}
+}
+.c-logo{width: 5em; height: 1.5em; @include image('logo.svg'); background-size: contain;  background-repeat: no-repeat; display: inline-block; float: left; margin-left: 0.75em;
+  @include device(xs){margin-left: 0; float: left;}
+}
+.c-menu__item{display: inline-block; margin-right: 0.75em; position: relative; 
+  &:last-child{margin-right:0}
+  &.is-open{
+    .o-submenu{display: block;}
+    .c-menu__target{background-color: darken($blue, 5%)}
+    .o-icon{@include image('arrow-up-white.svg')}
+  }
+  @include device(xs){margin-right: 0; display: block}
+}
+.c-menu__label{text-transform: uppercase; padding: 0.75em; font-size: 0.75em; @include lato; display: block; position: relative; font-weight: 400;
+  span{position: relative; z-index: 2}
+  &:hover{
+    &:after{@include prefix((transform:scale(1,1)))}
+    span{opacity: 0.8}
+  }
+  &:after{content:""; left:0; position: absolute; bottom:0; width: 100%; background-color: #fff; height: 2px; @include prefix((transition: transform 0.3s ease)); @include prefix((transform-origin:0% 0%)); @include prefix((transform:scale(0,1))); z-index: 0;
+    .is-dashboard &{opacity: 0}
   }
 }
-.c-logo{width: 5em; height: 1.5em; @include image('logo.svg'); background-size: contain;  background-repeat: no-repeat; display: block; float: left; margin-left: 0.75em;
-}
+.c-menu__target{position: absolute; height: 200%; width: 100%; top: -1.35em; left: 0;z-index: 1}
+
 .c-menu{float: right;
-  li{display: inline-block; margin-right: 0.75em}
-  a{text-transform: uppercase; padding: 0.75em; font-size: 0.75em; @include lato; display: block; position: relative; font-weight: 400}
+  .o-icon{height: 1em; width: 1em; position: relative; top: 1px; margin-left: 0.375em;}
+  .o-button{background-color:transparent; border:solid 2px; padding-left:2em; padding-right: 2em; display: inline-block;
+    &:after{content:""; position: static}
+  }  
+  @include device(xs){background-color: darken($blue, 8%); float:none; text-align: right; position: absolute; top: 4em; right:0; width:100%; height: 0; @include prefix((transition:height 0.3s ease)); overflow: hidden;
+    ul{padding:0.5em}
+    a{padding:1em}
+    &.is-open{height: 230px}
+  }
+}
+.c-menu__toggle{display:none; width: 2em; height: 2em; float: right; @include image('icons/menu.svg'); -webkit-background-size: contain; background-size: contain; background-repeat: no-repeat; position: relative; top: -0.1875em;
+  &.is-open{@include image('icons/close.svg')}
+  @include device(xs){display: inline-block;}
 }
 .c-slider__wrap{width: 100%; height: 80%;}
 .c-slider{height: 100%; width: 100%; text-align: center; color:white;
-  .swiper-slide{background-size: cover; background-repeat: no-repeat; background-position: center bottom;}
+  .swiper-slide{background-size: cover; background-repeat: no-repeat; background-position: center bottom; background-color: #75dff9; background-blend-mode: multiply}
   .swiper-slide-active{
     section{@include anim; @include fadeInUp}
   }
@@ -188,6 +380,17 @@ p{line-height: 1.8}
   .u-cell{vertical-align: middle}
   section{width: 70%; margin: 0 auto}
   h1{margin-bottom: 2.5em}
+  .o-button{background-color: #FFF; color:$blue; font-weight:400;
+    &:hover{background-color:$blue; color: white}
+  }
+  @include device (md){
+    section{width: 85%}
+  }
+  @include device(xs){
+    section{width: auto; margin-bottom: 2.5em;}
+    h1{margin-bottom: 1.8em}
+    .u-cell{vertical-align: bottom}
+  }
 }
 .c-process{@extend .clear; margin-bottom: 4.5em;
   >li{width: 25%; float: left; box-shadow: 0 0 0 #fff; transition: box-shadow 0.3s ease, background-color 0.3s ease;
@@ -196,24 +399,47 @@ p{line-height: 1.8}
   h3{margin-bottom:1em;}
   section{padding:1em; text-align:  center}
   .o-icon{height: 4.5em; width: 4.5em; margin:0 auto 2.5em; border:solid 1px $blue; border-radius: 2.5em; background-size: 30px}
+  @include device(sm){
+    >li{width: 50%;}
+    section{padding:0.5em;}
+  }
+  @include device(xs){
+    >li{width: 100%}
+    section{padding: 0; margin-bottom: 1.5em}
+  }
 }
 .c-features{margin-top:2.5em;
   >li{margin-bottom: 2.5em;}
   section{padding: 0 1.2em}
   h3{margin-bottom: 1.2em}
+  @include device(sm){
+    >li{width: auto; float:none;}
+    section{padding-left:0;}
+  }
+  @include device(xs){
+    section{padding: 0}
+  }
 }
-.c-features__image{position: absolute; top:0; right:0; -webkit-background-size: cover; background-size: cover; background-position: center; background-repeat: no-repeat; @include image('xeno-mockup.jpg'); height: 100%;}
+.c-features__image{position: absolute; top:0; right:0; -webkit-background-size: cover; background-size: cover; background-position: center; background-repeat: no-repeat; @include image('xeno-mockup.jpg'); height: 100%;
+  @include device(xs){position: static; height: 20em; margin-top: 2.5em;}
+}
 .c-staff{@extend .clear; padding-top: 2.5em;
   >li{width: 50%; float: left;}
+  @include device(xs){
+    >li{width: auto; float:none;}
+  }
 }
 .c-sitemap{
-  >div{float: left; display: inline-block; margin-right: 3em}
+  >div{float: left; display: inline-block; margin-right: 1.5em; margin-bottom: 2em}
   ul{margin-top: 1.5em;}
   li{line-height: 2}
   a:hover{color: $blue;}
+  @include device(xs){
+    >div{margin-right: 2em}
+  }
 }
-$c-footer_color: darken(#a0b5bb, 5%);
-.c-footer{padding-top: 6em; font-size: 0.95em; background-color:#e7f1f4; color: $c-footer_color;
+$c-footer_color: #9e9e9e;
+.c-footer{padding-top: 6em; font-size: 0.95em; color: $c-footer_color;
   h3{color: inherit}
   form{margin-top: 1.5em;}
   .u-align__center{padding-top: 4.5em}
@@ -229,21 +455,164 @@ $c-footer_color: darken(#a0b5bb, 5%);
   section{padding-right:1.5em;}
 }
 .c-enroll{width: 55%; margin: 0 auto;
-  header{margin-bottom: 3em; padding-top:7em; font-size: 0.875em}
+  header{margin-bottom: 3em; padding-top:4.5em; font-size: 0.875em;}
   footer{margin-top: 2.5em;
     p{margin-bottom: 1.5em;}
   }
-  .o-fieldset{margin-bottom:2.5em; @extend .clear;
-    fieldset{
-      legend{padding:1.2em 0; line-height: 1.5}
+  li{margin-bottom: 2em;}
+  .o-radio{margin-right:0.75em}
+  .o-line{margin: 1em auto;}
+  .o-input{margin-top: 1em;
+    input{padding: 0.75em 0}
+  }
+  .s--error{
+    label, input{color: #f5964e;}
+  }
+}
+
+.c-contacts{
+  section{padding:0 0 0.875em}
+  a{display: block}
+  .o-icon{float: left; position: relative; top:2px; margin-right: 6px}
+}
+.c-profiler{width: 50em; margin:0 auto; padding:3em 0 4.5em;
+  h2{padding-bottom:1.5em}
+  p{padding-bottom:0.75em; font-size:0.95em}
+  header{margin-bottom: 2.5em;}
+  footer{margin-top: 2.5em; text-align: center;}
+  .o-radio{display: block; margin-bottom: 0.3em}
+  .o-section{padding-bottom: 3em; background:none;}
+  #chart{
+    &.is-active{margin-bottom: 2.5em}
+  }
+  .o-form__group{width: 70%; margin: 0 auto}
+  @include device(xs){width:auto;
+    header{margin-bottom: 0;}
+    .o-radio{margin-bottom:0.75em}
+  }
+}
+.c-profiler-nav{border-bottom: solid 1px lighten($grey, 10%); padding-bottom: 1.5em;
+  li{display: inline-block; margin-right: 3.5em}
+  a{display: block; color:darken($grey, 5%);
+    &.is-active{color: $green;
+      div{background-color: $green; color:white;}
     }
   }
-  li{margin-bottom: 2em;}
-  .o-fieldset__title{margin-bottom:0.75em}
-  .o-radio{margin-right:0.75em}
-  .o-line{margin: 0.75em auto;}
-  ::-webkit-input-placeholder {color: $black}
-  ::-moz-placeholder {color: $black}
-  :-ms-input-placeholder {color: $black}
-  :-moz-placeholder {color: $black}
+  div{width: 1.5em;height: 1.5em; border:solid 1px; border-radius: 1.5em; display: inline-block;}
+  h4{display: inline-block; position: relative; left:0.1875em; top: 0.25em}
+  span{position: relative; top:0.2em; left:0.65em; font-size: 0.75em}
+  @include device(xs){display: none}
 }
+.c-profiler-footer{padding: 2.5em 1em 0 1em;
+  p{font-size:0.875em; color: #35a77d}
+}
+.c-summary{padding:2em 0;@extend .clear;
+  h4{padding-bottom:1em; color:$green;}
+  span{display: block}
+  section{display: inline-block; margin-right:2.5em; float: left}
+  select{border-bottom: none; color: $blue; padding-top: 0; background-position: right 0.4375em; position: relative;top:-3px;}
+  @include device(xs){
+    section{display: block; float:none; margin-right:0; margin-bottom:2em}
+    span{line-height:1.2}
+  }
+}
+.c-scenario{padding:0 0 3em;
+  b{color: $blue}
+}
+.c-assets{background-color: #ecf7fb; padding: 1em;
+  p{border-bottom:solid 1px #d6dce0; margin-bottom:0.75em; 
+    &:last-child{border-bottom:none; margin-bottom: 0; padding-bottom: 0}
+  }
+  span{width: 0.75em; height: 0.75em; border-radius: 1em; display: inline-block}
+}
+.c-faq__table{padding: 2em 0;
+  a{color: $blue; font-size: 1.2em; padding: 0.4em 0; display: inline-block; @include prefix((transition: opacity 0.5s ease));
+    &:hover{opacity:0.5;}
+  }
+  .o-icon{width: 0.75em; height: 0.75em; margin-right: 1em;}
+}
+.c-survey{
+  h2{padding-bottom: 1em}
+  .o-radio{margin-bottom: 0.3em}
+  .o-button{margin-top: 1em}
+}
+.c-error{color: red; text-align: center; margin:2em 0; padding: 2em 0; box-shadow: 0 0 96px #dadada;
+  span{text-decoration: underline;}
+}
+.c-allocation{padding: 1.5em 0; 
+  h3{padding-bottom: 1.5em}
+  .o-input{margin-bottom: 2em;
+    input{padding: 0.75em 0}
+  }
+}
+.c-success{text-align: center; padding-bottom: 5em;
+  h2{padding-bottom: 0.5em; padding-top: 1em;
+    span{display: inline; font-size: 100%}
+  }
+  p{font-size: 1em; padding-bottom: 0}
+  .o-icon{height: 4em; width: 4em; border-radius: 50%; background-color: transparent; margin: 1.5em 0}
+  .o-button{margin-top: 3em}
+}
+.c-id{
+  .o-select{margin-right: 1em}
+  input{padding-bottom: 1.125em !important}
+}
+.c-upload{padding: 2em; border: solid 1px #d8d8d8; margin: 1.5em; text-align: center; margin-left: 0; border-radius: 4px;
+  figure{margin-bottom: 1.5em; height:4em; background-size: contain; background-position: center; background-repeat: no-repeat;
+    &.s--id{@include image('icons/id-card.svg')}
+    &.s--passport{@include image('icons/passport-card.svg')}
+  }
+  span{display: block; padding: 1.2em; font-size: 0.875em}
+}
+.c-share{padding-top: 2em;
+  a{display: inline-block; margin:1.5em; @include prefix((transition: opacity 0.3s ease));
+    &:hover{opacity:0.9;}
+  }
+  form{padding-top: 2em}
+}
+.c-setup{text-align:center; padding: 4em 0; width: 75%; margin: 0 auto;
+  h2{position: relative; margin-bottom: 1.2em; font-size:2em;
+    span{display: inline-block; font-size: 100%}
+  }
+  header{padding-bottom: 2em;
+    p{font-size: 0.875em; width: 60%; margin: 0 auto}
+  }
+  h3{text-align: left; text-transform: none; font-weight: 300; padding:0 0.5em 1em; font-size: 1em}
+  .u-footnote{margin: 0 auto; width: 60%; font-size: 0.8em; padding: 2em 0 1.5em;}
+  .c-summary{text-align: left; padding-top: 0}
+}
+.c-setup-question{font-size: 1.2em;
+  p{display: inline-block;}
+  .o-input{display: inline-block; margin:0 0.5em;}
+  input{text-align: center; padding: 0 0 0.3em}
+}
+.c-setup-footer{padding:2em 0 1em}
+.c-setup-summary{margin: 0 auto; width: 85%;
+  .u-footnote{width: 75%; margin: 0}
+  .u-highlight{background-color: #d8e9ee;border-bottom: none; color: $blue;
+    li:last-child{font-size: 1.8em;
+      span{padding: 0.2em}
+    }
+  }
+  ul{border-bottom:solid 1px #e2e4e6; padding:1em 0; @extend .clear; text-align: left;
+    li{float: left;}
+    li:first-child{width: 70%}
+    li:last-child{width: 30%}
+  }
+  span{padding: 0.5em}
+  .c-scenario{padding: 3em 0}
+}
+.c-setup-progress{height: 5px; width: 100%; background-color: #c9dce1 !important;
+  .swiper-pagination-progressbar{background: $green !important}
+}
+.c-dummy{
+  a{display: inline-block; padding-right: 1em; font-size: 0.875em}
+  .is-active{font-weight: bold}
+}
+
+.autocomplete-suggestions {background:#f0f5f9; overflow: auto; }
+.autocomplete-suggestion { padding: 4px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background:#d8e0e6; }
+.autocomplete-suggestions strong { font-weight: normal; color: $blue }
+.autocomplete-group { padding: 2px 5px; }
+.autocomplete-group strong { display: block; font-weight: bold}

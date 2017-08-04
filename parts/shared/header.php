@@ -1,18 +1,16 @@
-<section class="c-header <?php if(!is_front_page()){echo 'is-page';} ?>">
+<section class="c-header is-page">
 	<div class="u-box">
 		<div class="clear">
-			<a href="#" class="c-logo"></a>
-			<nav class="c-menu">
-				<ul>
-					<li><a href="#process">Process</a></li>
-					<li><a href="#features">Features</a></li>
-					<li><a href="#team">Team</a></li>
-					<li><a href="#">FAQs</a></li>
-					<li><a href="#">Survey</a></li>
-					<li><a href="#">Log In</a></li>
-					<li><a href="#">Invest</a></li>
-				</ul>
-			</nav>
+			<a class="c-logo"></a>
+			<a href="#" class="c-menu__toggle"></a>
+		</div>
+		<div class="c-dummy">
+			<a <?php if(is_page('retirement')){echo 'class="is-active"';} ?> href="<?php echo home_url(); ?>/retirement">Retirement</a>
+			<a <?php if(is_page('education')){echo 'class="is-active"';} ?> href="<?php echo home_url(); ?>/education">Education</a>
+			<a <?php if(is_page('emergencies')){echo 'class="is-active"';} ?> href="<?php echo home_url(); ?>/emergencies">Emergency</a>
+			<a <?php if(is_page('income')){echo 'class="is-active"';} ?> href="<?php echo home_url(); ?>/income">Income</a>
+			<a <?php if(is_page('build-home')){echo 'class="is-active"';} ?> href="<?php echo home_url(); ?>/build-home">Home</a>
+			<a <?php if(is_page('wealth')){echo 'class="is-active"';} ?> href="<?php echo home_url(); ?>/wealth">Wealth</a>
 		</div>
 	</div>
 </section>

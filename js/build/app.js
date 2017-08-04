@@ -45,41 +45,45 @@ jQuery(document).ready(function($) {
 	   	}
 	});
 
-	//inputs
-	$('select').change(function() {
-		$(this).blur();
-	});
+	function numberWithCommas(x) {
+    	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+	function removeCommas(s){
+	  return s.replace(/,/g, '');
+	}
 
-	$('.o-input input').blur(function() {
-	  var me = $(this);
-	  var placeholder = me.attr('placeholder');
-	  var value = me.val();
+	$('.js-thousands').keyup(function() {
+      var me = $(this);
+      var value = me.val();
+      var valueFormatted = numberWithCommas(removeCommas(value));
+      me.val(valueFormatted);
+    });
+	
 
-	  if(value){
-	    if(me.attr('type') != 'number'){
-	    	me.val(placeholder+': '+value);
-		}
-		else {
-			me.val(value);
-		}
-	  }
-	});
-
-	$('.o-input input').click(function() {
-	  var me = $(this);
-	  var placeholder = me.attr('placeholder')+': ';
-	  var value = me.val();
-	  
-	  if(me.attr('type') != 'number'){
-	  		me.val(value.substr(placeholder.length));
+	//Goal Setup
+	function resizeInput() {
+		if(!$(this).hasClass('js-thousands')){
+			var placeholderLength = 8;
+	    	$(this).attr('size', placeholderLength);
 	    }
-	    else {
-	    	me.val(value);
+	}
+	$('.c-setup input[type="text"]').each(resizeInput);
+	$('.c-setup input[type="text"]').keyup(resizeInput);
+
+	var swiperGoal = new Swiper('.swiper-wizard', {
+        pagination: '.swiper-pagination',
+        nextButton: '.c-setup-footer .s--next',
+        prevButton: '.c-setup-footer .s--back',
+        paginationType: 'progress',
+        simulateTouch: false,
+        autoHeight: true,
+        onSlideChangeEnd: function(){
+	    	$('.swiper-slide-active input').focus();
 	    }
-	  
-	});
-
-	$('.o-date').flatpickr();
-
+    });
+    $('.c-setup-footer .s--restart').click(function(e) {
+    	e.preventDefault();
+    	swiperGoal.slideTo(0);
+    });
 });
 
